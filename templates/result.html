@@ -1,0 +1,13 @@
+<!doctype html>
+<title>My Application</title>
+<h1>Documents matching query param/s</h1>
+
+  {% if results %}
+    <ul class=flashes>
+    {% for result in results %}
+      <li>{{ result["path"] }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+
+{% block body %}{% endblock %}
