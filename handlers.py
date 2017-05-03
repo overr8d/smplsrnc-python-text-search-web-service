@@ -140,7 +140,7 @@ def delete_handler(filename):
     return "Success!"
 
 """
-    Parses the request param "q" and passes it to a thread for searching task
+    Parses the request param "q"
     Searches query param/s through the index schema
     Returns corresponding filename/s in result.html template
 
