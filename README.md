@@ -1,4 +1,4 @@
-# SMPLSRNC - Programming Assignment: Python Text Search Web Service
+# SMPLSRNC - Python Text Search Web Service
 
 Text search web service is implemented using the files outlined below:
 
