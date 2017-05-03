@@ -257,16 +257,23 @@ def search_handler():
 
 * Run `python server.py` to fire up the server.
 * Run [Postman](https://www.getpostman.com/) or another solution to send custom requests to API/web service.
-* 
-* Client test locates under (`/test/client/spec/test.html`). Open in the browser to display test results. Test script locates under (`/test/client/spec/test.js`). The tool utilized is as follows: [jasmine](https://jasmine.github.io/)
-* Run `npm start` (starts the signalling server on port:8090 and the web server on port:8089).
-* Open [client page](http://localhost:8089/app/client/client.html) on multiple tabs in the browser. 
-* Client code runs on page load, and starts the negotiation with other peers immediately if any.
-* A message box, "My ID" indicator and "Online Peers" list that excludes a given peer's ID welcome the user. 
-* Inspect console logs regarding the offer/answer negotiation and connection establishment by using dev tools of corresponding browser.
-* To send a P2P message, simply copy any peer Id under "Online Peers" title and text a message in a given format: "> PEER_ID MESSAGE", then click "send" button.
-* Failing to send a text message in given format displays various error messages under "Online Peers" list. Mostly white space failures and attempts to send invalid peers were considered while designing error messages. 
+* Send POST request to `localhost:5000/document` as shown below to upload a file to web service.
 
+<img width="680" alt="post_document" src="https://cloud.githubusercontent.com/assets/18366839/25673901/ae0a08f8-3041-11e7-9ff7-d97f6b953671.png">
+
+* Send GET request to `localhost:5000/document/filename` by replacing the `filename` parameter with a specific file name to retrieve the corresponding file. 
+
+<img width="680" alt="get_document" src="https://cloud.githubusercontent.com/assets/18366839/25673899/ae036afc-3041-11e7-8186-7dbc47ddc69e.png">
+
+* Send DELETE request to `localhost:5000/document/filename` by replacing the `filename` parameter with a specific file name to delete the corresponding file. 
+
+<img width="680" alt="delete_document" src="https://cloud.githubusercontent.com/assets/18366839/25673898/adfe8672-3041-11e7-92f3-e2a4a407be71.png">
+
+* Send GET request to `localhost:5000/search?q={word1}` by replacing the `word1` parameter with a keyword or keywords to retrieve the list of files containing the parameter/s. 
+
+<img width="680" alt="get_search" src="https://cloud.githubusercontent.com/assets/18366839/25673900/ae0762c4-3041-11e7-922d-b664cedef3c9.png">
+
+## Prerequisites
 
 * Python 2.7
 * Mozilla Firefox 42 or Google Chrome 46 or later
