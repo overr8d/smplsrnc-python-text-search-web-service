@@ -3,7 +3,7 @@ import os.path
 import thread
 from whoosh.index import create_in
 from whoosh.fields import *
-from whoosh.qparser import QueryParser
+from whoosh import qparser
 from werkzeug import secure_filename
 from flask import request, redirect, send_from_directory, render_template
 
@@ -152,7 +152,10 @@ def delete_handler(filename):
 def search_handler():
     query = request.args.get('q')
     with ix.searcher() as searcher:
-        _query = QueryParser("content", ix.schema).parse(unicode(query))
+        # Changes the parser to use "OR" instead: param1 OR param2 OR param3...
+        parser = qparser.QueryParser("content", ix.schema,
+                                 group=qparser.OrGroup)
+        _query = parser.parse(unicode(query))
         results = searcher.search(_query)
         return render_template('result.html', results=results)
 
