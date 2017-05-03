@@ -5,17 +5,17 @@ Text search web service is implemented using the files outlined below:
 - Server (`server.py`) defines the routers defined for a given task, and invokes corresponding handler functions from 'handlers.py'.
 - Server handlers (`handlers.py`) holds the handler functions that help indexing, deleting, retrieving files and searching the parameters passed by URLS.
 - Result template (`/templates/result.html`) displays search results in a rendered template. 
-- Python packages list (`requirements.txt`) stores the name of packages that the application relies on in order to perform properly. It is handy, when developing in isolated environments like 'virtualenv' and installing dependencies in a bulky fashion by passing it as a parameter to 'pip'
+- Python packages list (`requirements.txt`) stores the name of packages that the application relies on in order to perform properly. It is handy, when developing in isolated environments like 'virtualenv' and installing dependencies in a bulky fashion by passing it as a parameter to 'pip'.
 - Text folder (`/text`) It is for test purposes only. Holds some books in 'txt' format that a user can upload to web service.
 
 ### Requirements:
 
 - [x] The service should hold all data in memory.
-- [x] POST /document/XXX Saves a text document with ID XXX
-- [x] GET /document/XXX Returns the text document with ID XXX
-- [x] Documents are just text (no fields to parse)
-- [x] GET /search?q={word} Returns the list of IDs from documents with content that match the given keyword (single word search)
-- [x] DELETE /document/XXX Deletes document with ID XXX
+- [x] POST /document/XXX Saves a text document with ID XXX.
+- [x] GET /document/XXX Returns the text document with ID XXX.
+- [x] Documents are just text. (no fields to parse)
+- [x] GET /search?q={word} Returns the list of IDs from documents with content that match the given keyword. (single word search)
+- [x] DELETE /document/XXX Deletes document with ID XXX.
 
 ### Extra:
 
@@ -250,7 +250,7 @@ def search_handler():
         return render_template('result.html', results=results)
 ```
 
-* `search_handler()` parses a `q` parameter from a request object, search it through index schema and returns the result in the rendered template. One thing to note here, QueryParser accepts multiple parameters, allowing the developer to implement the same function for both singular and multiple keyword/s cases. `group=qparser.OrGroup` is specified to allow the parameters to be connected by OR.
+* `search_handler()` parses a `q` parameter from a request object, search it through index schema and returns the result in the rendered template. One thing to note here, QueryParser accepts multiple parameters, allowing the developer to implement the same function for both single and multiple keyword/s cases. `group=qparser.OrGroup` is specified to allow the parameters to be connected by OR.
 * In this section, performance issues pop up in minds under heavy search requests and many file uploads, but per the emprical tests conducted, `Whoosh` library performed very well, thus the idea of implementing another solution was utterly discarded.
 
 ## How to launch the app
@@ -277,5 +277,5 @@ def search_handler():
 
 * Python 2.7
 * Mozilla Firefox 42 or Google Chrome 46 or later
-* Postman for Chrome Version 4.10.7
+* Postman Version 4.10.7
 
